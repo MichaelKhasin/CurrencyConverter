@@ -1,8 +1,13 @@
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.time.Instant;
 
+// Class responsible for end screen
+// "Thank you for using our currency converter."
+// Print conversion results
+// Save conversion results in results.txt and opens results file automatically
 public class EndScreen {
 
     public void finalScreen(){
@@ -19,5 +24,17 @@ public class EndScreen {
         } catch(Exception e) {
             e.printStackTrace();
         }
+
+        // open results file automatically
+        try {
+            File logFile=new File("C:\\Users\\Noam\\Downloads\\results.txt");
+            Desktop desktop = Desktop.getDesktop();
+            desktop.open(logFile); //opens the specified file
+            }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
     }
 }
