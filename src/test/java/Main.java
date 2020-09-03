@@ -7,6 +7,7 @@ public class Main {
         ConversionOptionConversionAmount conversionOptionConversionAmount = new ConversionOptionConversionAmount();
         conversionOptionConversionAmount.conversionOptionAndAmount();
 
+        // Another Conversion (Y/N):
         AnotherConversion anotherConversion = new AnotherConversion();
         anotherConversion.anotherConversionFlow();
         while (anotherConversion.option.equalsIgnoreCase("Y")){ // Y – Will start conversion cycle again

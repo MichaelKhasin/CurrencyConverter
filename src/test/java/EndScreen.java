@@ -10,7 +10,7 @@ public class EndScreen {
         System.out.println("Your conversion results: " + ConversionOptionConversionAmount.getList());
 
         try {
-            File logFile=new File("C:\\Users\\Misha\\Downloads\\results.txt");
+            File logFile=new File("C:\\Users\\Noam\\Downloads\\results.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(logFile, true));
             writer.newLine();
             writer.write (Instant.now().toString() + ": " + ConversionOptionConversionAmount.getList() + "\n");
