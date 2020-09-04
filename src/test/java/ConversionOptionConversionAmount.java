@@ -3,8 +3,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConversionOptionConversionAmount {
-    // ArrayList var - where conversion results are saved
+    // ArrayLists - where conversion results and conversion flow are saved
     private static ArrayList<Double> arraylist = new ArrayList<Double>();
+    private static ArrayList<String> arraylistConversionFlow = new ArrayList<String>();
+
     // Method conversionOptionAndAmount includes the flow of which conversion option (Dollars to Shekels or Shekels to Dollars)
     // the user will choose.
     // Loop "Invalid Choice, please try again" in case 1 or 2 is not chosen
@@ -17,7 +19,7 @@ public class ConversionOptionConversionAmount {
         // Call conversionOption method which introduces to user 1. Dollars to Shekels or 2. Shekels to Dollars
         int option = conversionOption();
         // While loop until 1 or 2 chosen:
-        while (option != 1 && option != 2){
+        while (option != 1 && option != 2 && option != 3){
             System.out.println("Invalid Choice, please try again");
             option = conversionOption();
         }
@@ -35,6 +37,7 @@ public class ConversionOptionConversionAmount {
             // 3rd screen
             System.out.println("The result of conversion: " + input + " Dollars = " + coin.calculate(input) + " Shekel");
             arraylist.add(coin.calculate(input));
+            arraylistConversionFlow.add("USD to ILS");
         }
 
         else if (option == 2){ // 2. Shekels to Dollars
@@ -51,13 +54,32 @@ public class ConversionOptionConversionAmount {
             // 2nd screen - enter amount to convert
             System.out.println("The result of conversion: " + input + " Shekels = " + coin.calculate(input) + " Dollars");
             arraylist.add(coin.calculate(input));
+            arraylistConversionFlow.add("ILS to USD");
+        }
+
+
+        if (option == 3){ // 3. Euro to Shekels
+            Coin coin = CoinFactory.getCoinInstance(Coins.EUR); // Factory instantiation of EUR class
+            // 2nd screen - enter amount to convert
+            String amountinput = amountToConvert();
+            boolean isnumeric = isNumeric(amountinput);
+            while (!isnumeric) {
+                System.out.println("Invalid Choice, please enter numeric value");
+                amountinput = amountToConvert();
+                isnumeric = isNumeric(amountinput);
+            }
+            double input = Double.parseDouble(amountinput);// convert string to double for further "input" treatment in other classes
+            // 3rd screen
+            System.out.println("The result of conversion: " + input + " Euro = " + coin.calculate(input) + " Shekel");
+            arraylist.add(coin.calculate(input));
+            arraylistConversionFlow.add("EUR to ILS");
         }
     }
     // conversionOption method which introduces to user 1. Dollars to Shekels or 2. Shekels to Dollars
     // User's input scanned from keyboard
     // the method also doing try/catch in case other then 1/2 option is entered including letters
     public static int conversionOption() {
-        System.out.println("Please choose an option (1/2):" + "\n" + "1. Dollars to Shekels" + "\n" + "2. Shekels to Dollars");
+        System.out.println("Please choose an option (1/2/3):" + "\n" + "1. Dollars to Shekels" + "\n" + "2. Shekels to Dollars" + "\n" + "3. Euro to Shekel");
         int option = 0;
         try { // catch InputMismatchException
             Scanner scanner = new Scanner(System.in);
@@ -86,6 +108,11 @@ public class ConversionOptionConversionAmount {
     // getter for arraylist, where conversion results are saved
     public static ArrayList<Double> getList() {
         return arraylist;
+    }
+
+    // getter for arraylistConversionFlow, where conversion flow is saved
+    public static ArrayList<String> getArraylistConversionFlow() {
+        return arraylistConversionFlow;
     }
 
     // Method for checking if scanned from keyboard conversion amount is numeric or not
