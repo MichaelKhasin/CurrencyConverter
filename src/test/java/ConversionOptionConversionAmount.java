@@ -2,18 +2,24 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class ConversionOptionConversionAmount includes the flow of which conversion option
+ * (Dollars to Shekels / Shekels to Dollars / Euro to Shekel)
+ * the user will choose.
+ * Loop "Invalid Choice, please try again" in case 1/2/3 is not chosen.
+ * Factory instantiation of USD/ILS/EUR class.
+ * Check if "Amount for conversion" is numeric or not. If not - Loop "Invalid Choice, please enter numeric value".
+ * Introducing to user "The result of conversion".
+ * Inserting conversion result to arrayList and to results.txt (file).
+ */
+
+
 public class ConversionOptionConversionAmount {
     // ArrayLists - where conversion results and conversion flow are saved
     private static ArrayList<Double> arraylist = new ArrayList<Double>();
     private static ArrayList<String> arraylistConversionFlow = new ArrayList<String>();
 
-    // Method conversionOptionAndAmount includes the flow of which conversion option (Dollars to Shekels or Shekels to Dollars)
-    // the user will choose.
-    // Loop "Invalid Choice, please try again" in case 1 or 2 is not chosen
-    // Factory instantiation of USD or ILS class
-    // Check if "Amount for conversion" is numeric or not. If not - Loop "Invalid Choice, please enter numeric value".
-    // Introducing to user "The result of conversion"
-    // Inserting conversion result to results.txt (file)
+
     public void conversionOptionAndAmount(){
         // 1st screen
         // Call conversionOption method which introduces to user 1. Dollars to Shekels or 2. Shekels to Dollars

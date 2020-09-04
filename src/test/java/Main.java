@@ -1,3 +1,19 @@
+/**
+ * Currency Converter.
+ * Converting next currencies:
+ * 1. Dollars to Shekels
+ * 2. Shekels to Dollars
+ * 3. Euro to Shekel
+ * Invalid Choice is checked and appropriate message appears to user.
+ * Next conversion rates are used:
+ * 3.52 for Dollars to Shekels; 0.28 for Shekels to Dollars; 4.23 for Euro to Shekel.
+ * Factory design pattern is used for USD/ILS/EUR classes instantiation.
+ * javadoc cmd command:
+ * cd C:\Users\Noam\IdeaProjects\CurrencyConverter\src\test\java
+ * javadoc main.java ConversionOptionConversionAmount.java -d C:\Users\Noam\IdeaProjects\CurrencyConverter\src\main\doc
+ */
+
+
 public class Main {
     public static void main(String[] args) {
         // Welcome screen
