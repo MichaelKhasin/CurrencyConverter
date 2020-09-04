@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.time.Instant;
 
-// Class responsible for end screen
-// "Thank you for using our currency converter."
-// Print conversion results
-// Save conversion results in results.txt and opens results file automatically
+/**
+* Class responsible for end screen
+* "Thank you for using our currency converter."
+* Print conversion results
+* Save conversion results in results.txt and opens results file automatically
+ */
+
 public class EndScreen {
 
     public void finalScreen(){

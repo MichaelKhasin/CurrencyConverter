@@ -15,15 +15,16 @@ import java.util.Scanner;
 
 
 public class ConversionOptionConversionAmount {
-    // ArrayLists - where conversion results and conversion flow are saved
+    // Global vars
     private static ArrayList<Double> arraylist = new ArrayList<Double>();
     private static ArrayList<String> arraylistConversionFlow = new ArrayList<String>();
+    private static int option;
 
 
     public void conversionOptionAndAmount(){
         // 1st screen
         // Call conversionOption method which introduces to user 1. Dollars to Shekels or 2. Shekels to Dollars
-        int option = conversionOption();
+        option = conversionOption();
         // While loop until 1 or 2 chosen:
         while (option != 1 && option != 2 && option != 3){
             System.out.println("Invalid Choice, please try again");
@@ -119,6 +120,11 @@ public class ConversionOptionConversionAmount {
     // getter for arraylistConversionFlow, where conversion flow is saved
     public static ArrayList<String> getArraylistConversionFlow() {
         return arraylistConversionFlow;
+    }
+
+    // getter for getOption 1/2/3 option scanned from keyboard
+    public static int getOption () {
+        return option;
     }
 
     // Method for checking if scanned from keyboard conversion amount is numeric or not
